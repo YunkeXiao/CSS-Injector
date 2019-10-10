@@ -9,16 +9,30 @@
 
 <body>
 <div id="popup-content">
-    <div class="button beast">Frog</div>
-    <div class="button beast">Turtle</div>
-    <div class="button beast">Snake</div>
-    <div class="button reset">Reset</div>
+    <div class="header domain-selector">
+        <label> Domain Regex:
+            <input type="text">
+        </label>
+    </div>
+    <div class="header domain-title">
+        <label> Domain Name:
+            <input type="text">
+        </label>
+    </div>
+    <div class="header domain-css">
+        <label>CSS:
+            <textarea rows="10" placeholder="--Enter your CSS code here--">
+            </textarea>
+        </label>
+    </div>
+
 </div>
-<div id="error-content" class="hidden">
-    <p>Can't beastify this web page.</p>
-    <p>Try a different page.</p>
-</div>
+<!--<div id="error-content" class="hidden">-->
+    <!--<p>Can't beastify this web page.</p>-->
+    <!--<p>Try a different page.</p>-->
+<!--</div>-->
 <script src="choose_beast.js"></script>
+<script src="helper.js"></script>
 </body>
 
 </html>

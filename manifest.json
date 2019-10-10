@@ -13,12 +13,7 @@
   ],
   "browser_action": {
     "default_icon": "icons/beasts-32.png",
-    "default_title": "Beastify",
+    "default_title": "CSS-Injector",
     "default_popup": "popup/choose_beast.html"
-  },
-  "web_accessible_resources": [
-    "beasts/frog.jpg",
-    "beasts/turtle.jpg",
-    "beasts/snake.jpg"
-  ]
+  }
 }

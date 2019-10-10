@@ -9,14 +9,25 @@ html{
 /*html, */
 body {
     padding:1rem;
-    width: 15rem;
+    width: 30rem;
     background-color: #f1f1f1;
     font-family: Roboto, sans-serif;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    font-size: 1.25rem;
 }
 
-#popup-content{
+.title{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.title h1{
+    margin: 0;
+}
+
+#popup-content, .header label{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -25,15 +36,54 @@ body {
 
 .header label input{
     font-weight: 100;
-    width: 96%;
+    font-size: 1.25rem;
 }
 
 .header label textarea {
-    font-weight: 100;
-    width: 99%;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 300;
+    font-size: 1.15rem;
     resize: none;
 }
 
 .hidden {
     display: none;
+}
+
+.domain-submit label{
+    float: right;
+}
+
+input[type="button"] {
+    background: #f1f1f1;
+    border: 1px solid #bdbdbd;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    padding: 0.5rem 1rem;
+}
+
+input[type="button"]:hover{
+    background: white;
+    cursor: pointer;
+}
+
+input[type="button"]:active{
+    background-color: darkgray;
+}
+
+#submit-button{
+    margin-left: 1rem;
+    background-color: dodgerblue;
+    color: #f1f1f1;
+}
+
+#submit-button:hover {
+    background-color: #0ca0ff;
+    color: white;
+}
+
+#submit-button:active {
+    background-color: #2274ff;
+    color: #f1f1f1;
 }

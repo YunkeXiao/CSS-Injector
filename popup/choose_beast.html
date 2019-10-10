@@ -9,6 +9,9 @@
 
 <body>
 <div id="popup-content">
+    <div class="title">
+        <h1>CSS-Injector</h1>
+    </div>
     <div class="header domain-selector">
         <label> Domain Regex:
             <input type="text">
@@ -25,14 +28,25 @@
             </textarea>
         </label>
     </div>
+    <div class="domain-submit">
+        <label>
+            <input type="button" value="Submit" id="submit-button">
+        </label>
+        <label>
+            <input type="button" value="Test">
+        </label>
+    </div>
 
 </div>
 <!--<div id="error-content" class="hidden">-->
     <!--<p>Can't beastify this web page.</p>-->
     <!--<p>Try a different page.</p>-->
 <!--</div>-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script src="choose_beast.js"></script>
 <script src="helper.js"></script>
+
+<!--<script src="helper.js"></script>-->
 </body>
 
 </html>

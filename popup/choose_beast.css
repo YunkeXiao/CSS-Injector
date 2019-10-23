@@ -72,6 +72,11 @@ input[type="button"]:active{
     background-color: darkgray;
 }
 
+input:focus, textarea:focus{
+    border-color: dodgerblue;
+    border-style: solid;
+}
+
 #submit-button{
     margin-left: 1rem;
     background-color: dodgerblue;
@@ -86,4 +91,13 @@ input[type="button"]:active{
 #submit-button:active {
     background-color: #2274ff;
     color: #f1f1f1;
+}
+
+.domain-submit{
+    margin-top: 1rem;
+}
+
+.domain-search select, .domain-search select option{
+    font-family: Roboto, sans-serif;
+    font-size: 1.25rem;
 }

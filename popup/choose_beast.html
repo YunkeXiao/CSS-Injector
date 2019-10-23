@@ -14,14 +14,24 @@
     </div>
     <div class="header domain-selector">
         <label> Domain Regex:
-            <input type="text" placeholder="The regex determines the triggered URLs">
+            <input type="text" id='domain-selector-input' placeholder="The regex determines the triggered URLs">
         </label>
     </div>
     <div class="header domain-title">
         <label> Domain Name:
-            <input type="text" placeholder="The name of this rule">
+            <input type="text" id='domain-title-input' placeholder="The name of this rule">
         </label>
     </div>
+    <div class="header domain-search">
+        <label>
+        Domain:
+            <select>
+                <!--<option>hello</option>-->
+            </select>
+        </label>
+    </div>
+
+
     <div class="header domain-css">
         <label>CSS:
             <textarea rows="10" placeholder="--Enter your CSS code here--"></textarea>
@@ -29,7 +39,7 @@
     </div>
     <div class="domain-submit">
         <label>
-            <input type="button" value="Submit" id="submit-button">
+            <input type="button" value="Add CSS" id="submit-button">
         </label>
         <label>
             <input type="button" value="Test">
@@ -40,8 +50,6 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <script src="choose_beast.js"></script>
 <script src="helper.js"></script>
-
-<!--<script src="helper.js"></script>-->
 </body>
 
 </html>

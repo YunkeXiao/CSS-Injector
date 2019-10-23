@@ -3,10 +3,12 @@
 
 html{
     background-color: purple;
+    padding:0;
+    overflow-x: hidden;
 }
 
 
-/*html, */
+/*html */
 body {
     padding:1rem;
     width: 30rem;
@@ -19,6 +21,7 @@ body {
 
 .title{
     width:100%;
+    max-width: 100%;
     display:flex;
     justify-content: center;
 }
@@ -27,11 +30,20 @@ body {
     margin: 0;
 }
 
-#popup-content, .header label{
+.popup-page, .header label{
     width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+#popup-0 input{
+    margin: 0 2rem 1rem 2rem;
+}
+
+#popup-1{
+    display: none;
 }
 
 .header label input{
@@ -44,10 +56,15 @@ body {
     font-weight: 300;
     font-size: 1.15rem;
     resize: none;
+    height: 10rem;
+}
+
+.header{
+    margin-bottom: 1.25rem;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .domain-submit label{
@@ -55,20 +72,22 @@ body {
 }
 
 input[type="button"] {
-    background: #f1f1f1;
     border: 1px solid #bdbdbd;
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 1.15rem;
     padding: 0.5rem 1rem;
 }
+.regular-button{
+    background: #f1f1f1;
+}
 
-input[type="button"]:hover{
+.regular-button:hover{
     background: white;
     cursor: pointer;
 }
 
-input[type="button"]:active{
+.regular-button:active{
     background-color: darkgray;
 }
 
@@ -77,27 +96,27 @@ input:focus, textarea:focus{
     border-style: solid;
 }
 
-#submit-button{
-    margin-left: 1rem;
+.highlight-button{
     background-color: dodgerblue;
     color: #f1f1f1;
 }
 
-#submit-button:hover {
+.highlight-button:hover {
     background-color: #0ca0ff;
     color: white;
+    cursor: pointer;
 }
 
-#submit-button:active {
+.highlight-button:active {
     background-color: #2274ff;
     color: #f1f1f1;
 }
 
-.domain-submit{
-    margin-top: 1rem;
-}
-
-.domain-search select, .domain-search select option{
+.domain-select select, .domain-select select option{
     font-family: Roboto, sans-serif;
     font-size: 1.25rem;
+}
+
+.domain-submit label:nth-of-type(1) input{
+    margin-left:1rem;
 }

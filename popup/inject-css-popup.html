@@ -4,14 +4,18 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="choose_beast.css"/>
+    <link rel="stylesheet" href="inject-css-style.css"/>
 </head>
 
 <body>
-<div id="popup-content">
-    <div class="title">
-        <h1>CSS-Injector</h1>
-    </div>
+<div class="title">
+    <h1>CSS-Injector</h1>
+</div>
+<div id="popup-0" class="popup-page">
+    <input type="button" value="New Domain" class="regular-button">
+    <input type="button" value="Existing Domain" class="highlight-button">
+</div>
+<div id="popup-1" class="popup-page">
     <div class="header domain-selector">
         <label> Domain Regex:
             <input type="text" id='domain-selector-input' placeholder="The regex determines the triggered URLs">
@@ -23,32 +27,35 @@
         </label>
     </div>
     <div class="header domain-search">
+        <label> Domain Search:
+            <input type="text" id='domain-search-input' placeholder="Search for past domain rules">
+        </label>
+    </div>
+    <div class="header domain-select">
         <label>
-        Domain:
+            Domain:
             <select>
-                <!--<option>hello</option>-->
             </select>
         </label>
     </div>
 
-
     <div class="header domain-css">
         <label>CSS:
-            <textarea rows="10" placeholder="--Enter your CSS code here--"></textarea>
+            <textarea rows="" placeholder="--Enter your CSS code here--"></textarea>
         </label>
     </div>
     <div class="domain-submit">
         <label>
-            <input type="button" value="Add CSS" id="submit-button">
+            <input type="button" value="Add CSS" class="highlight-button">
         </label>
         <label>
-            <input type="button" value="Test">
+            <input type="button" value="Test" class="regular-button">
         </label>
     </div>
 
 </div>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-<script src="choose_beast.js"></script>
+<script src="inject-css.js"></script>
 <script src="helper.js"></script>
 </body>
 

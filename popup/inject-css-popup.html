@@ -4,7 +4,11 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="inject-css-style.css"/>
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="state.css"/>
+    <link rel="stylesheet" href="module.css"/>
+    <link rel="stylesheet" href="theme.css"/>
 </head>
 
 <body>
@@ -12,8 +16,8 @@
     <h1>CSS-Injector</h1>
 </div>
 <div id="popup-0" class="popup-page">
-    <input type="button" value="New Domain" class="regular-button">
-    <input type="button" value="Existing Domain" class="highlight-button">
+    <input id="new-domain" type="button" value="New Domain" class="button--regular menu-button">
+    <input id="existing-domain" type="button" value="Existing Domain" class="button--highlight menu-button">
 </div>
 <div id="popup-1" class="popup-page">
     <div class="header domain-selector">
@@ -46,10 +50,13 @@
     </div>
     <div class="domain-submit">
         <label>
-            <input type="button" value="Add CSS" class="highlight-button">
+            <input id="back-to-menu" type="button" value="Add CSS" class="danger-button">
         </label>
         <label>
-            <input type="button" value="Test" class="regular-button">
+            <input id="test-css" type="button" value="Test" class="button--regular inject-button">
+        </label>
+        <label>
+         <input id="add-css" type="button" value="Add CSS" class="button--highlight inject-button">
         </label>
     </div>
 

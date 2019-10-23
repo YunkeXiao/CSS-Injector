@@ -1,0 +1,38 @@
+/*----------------------------------------------------------------------------------------------------------------------
+[Table of Contents]
+2. Header / .header
+    2.1. Header Label / .header label
+        2.1.1. Header Textarea / .header textarea
+2. Popup Button Area / .domain-submit
+3. Popup Page Inputs / #popup-0 input
+3. Title Area / .title h1
+----------------------------------------------------------------------------------------------------------------------*/
+
+.header {
+    margin-bottom: 1.25rem;
+}
+    .header label {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+        .header label textarea {
+            height: 10rem;
+            resize: none;
+        }
+
+.domain-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#popup-0 input {
+    margin: 0 2rem 1rem 2rem;
+}
+
+.title h1 {
+    margin: 0;
+}

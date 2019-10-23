@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400&display=swap');
+
+/*----------------------------------------------------------------------------------------------------------------------
+[Table of Contents]
+1. Buttons
+    1.1 Regular Button / .button--regular
+    1.2 Highlight Button / .button--highlight
+    1.3 Danger Button / .button--danger
+2. Dropdown / .domain-select select, .domain-select select option
+3. Header / .header
+    3.1. Header Inputs / .header label input
+    3.2. Header Textarea / .header label textarea
+----------------------------------------------------------------------------------------------------------------------*/
+.button--regular {
+    background: #f1f1f1;
+}
+    .button--regular:hover {
+        background: white;
+        cursor: pointer;
+    }
+
+    .button--regular:active {
+        background-color: darkgray;
+    }
+
+.button--highlight {
+    background-color: dodgerblue;
+    color: #f1f1f1;
+}
+    .button--highlight:hover {
+        background-color: #0ca0ff;
+        color: white;
+        cursor: pointer;
+    }
+
+    .button--highlight:active {
+        background-color: #2274ff;
+        color: #f1f1f1;
+    }
+
+.domain-select select, .domain-select select option {
+    font-family: Roboto, sans-serif;
+    font-size: 1.25rem;
+}
+
+.header {}
+    .header label input {
+        font-weight: 100;
+        font-size: 1.25rem;
+    }
+    
+    .header label textarea {
+        font-family: "Roboto Mono", monospace;
+        font-weight: 300;
+        font-size: 1.15rem;
+    }

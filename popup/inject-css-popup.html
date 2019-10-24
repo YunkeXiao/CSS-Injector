@@ -19,44 +19,43 @@
     <input id="new-domain" type="button" value="New Domain" class="button--regular menu-button">
     <input id="existing-domain" type="button" value="Existing Domain" class="button--highlight menu-button">
 </div>
-<div id="popup-1" class="popup-page">
-    <div class="header domain-selector">
+<div id="popup-1" class="popup-page --hidden">
+    <div class="header" id="domain-selector">
         <label> Domain Regex:
-            <input type="text" id='domain-selector-input' placeholder="The regex determines the triggered URLs">
+            <input type="text" id='domain-selector__input' placeholder="Regex determining the triggered URLs">
         </label>
     </div>
-    <div class="header domain-title">
+    <div class="header" id="domain-title">
         <label> Domain Name:
-            <input type="text" id='domain-title-input' placeholder="The name of this rule">
+            <input type="text" id='domain-title__input' placeholder="Name of this rule">
         </label>
     </div>
-    <div class="header domain-search">
+    <div class="header" id="domain-search">
         <label> Domain Search:
-            <input type="text" id='domain-search-input' placeholder="Search for past domain rules">
+            <input type="text" id='domain-search__input' placeholder="Search for past domain rules">
         </label>
     </div>
-    <div class="header domain-select">
+    <div class="header --dropdown" id="domain-select">
         <label>
             Domain:
             <select>
             </select>
         </label>
     </div>
-
-    <div class="header domain-css">
+    <div class="header --textarea" id="domain-css">
         <label>CSS:
             <textarea rows="" placeholder="--Enter your CSS code here--"></textarea>
         </label>
     </div>
-    <div class="domain-submit">
+    <div class="header --button" id="domain-submit">
         <label>
-            <input id="back-to-menu" type="button" value="Add CSS" class="danger-button">
+            <input id="domain-submit__input--back" type="button" value="Back" class="danger-button">
         </label>
         <label>
-            <input id="test-css" type="button" value="Test" class="button--regular inject-button">
+            <input id="domain-submit__input--test" type="button" value="Test" class="button--regular inject-button">
         </label>
         <label>
-         <input id="add-css" type="button" value="Add CSS" class="button--highlight inject-button">
+         <input id="domain-submit__input--add" type="button" value="Add CSS" class="button--highlight inject-button">
         </label>
     </div>
 

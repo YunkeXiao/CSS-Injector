@@ -23,7 +23,7 @@
             resize: none;
         }
 
-.domain-submit {
+.header.--button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

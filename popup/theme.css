@@ -39,7 +39,7 @@
         color: #f1f1f1;
     }
 
-.domain-select select, .domain-select select option {
+.header.--dropdown select, .header.--dropdown select option {
     font-family: Roboto, sans-serif;
     font-size: 1.25rem;
 }

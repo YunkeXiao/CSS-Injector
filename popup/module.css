@@ -3,7 +3,7 @@
 2. Header / .header
     2.1. Header Label / .header label
         2.1.1. Header Textarea / .header textarea
-2. Popup Button Area / .domain-submit
+2. Popup Button Area / #domain-submit
 3. Popup Page Inputs / #popup-0 input
 3. Title Area / .title h1
 ----------------------------------------------------------------------------------------------------------------------*/
@@ -18,16 +18,29 @@
         flex-direction: column;
         align-items: stretch;
     }
-        .header label textarea {
-            height: 10rem;
-            resize: none;
-        }
+    .header textarea {
+        height: 10rem;
+        resize: none;
+    }
 
 .header.--button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+#domain-submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+    #domain-submit input {
+        width: 7.5rem;
+    }
+    #domain-submit div{
+        display: flex;
+        flex-direction: row;
+    }
 
 #popup-0 input {
     margin: 0 2rem 1rem 2rem;

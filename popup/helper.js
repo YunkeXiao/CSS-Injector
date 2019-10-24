@@ -62,9 +62,19 @@ document.addEventListener("click", (e) => {
         }
     };
 
+    let applyCSS = ()=>{
+        let text_area = document.getElementById("domain-submit__textarea");
+
+    };
+
+    /**
+     * Check what triggers the click event, call response
+     * @param event: Event object
+     */
     let updatePopup = (event) => {
         let object_id = event.target["id"];
         switch (object_id) {
+            // Menu navigation section
             case "domain-submit__input--back":
                 changePage(0);
                 break;
@@ -74,8 +84,16 @@ document.addEventListener("click", (e) => {
             case "existing-domain":
                 changePage(2);
                 break;
+
+            // CSS injection section
+            case "domain-submit__input--test":
+
+                break;
+            case "domain-submit__input--add":
+                break;
         }
     };
     updatePopup(e);
     console.log(e.target.id);
+
 });

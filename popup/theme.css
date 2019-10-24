@@ -11,6 +11,7 @@
 3. Header / .header
     3.1. Header Inputs / .header label input
     3.2. Header Textarea / .header label textarea
+    3.3 Header Dropdown / .header.--dropdown select / .header.--dropdown option
 ----------------------------------------------------------------------------------------------------------------------*/
 .button--regular {
     background: #f1f1f1;
@@ -57,19 +58,17 @@
     border-right: none;
 }
 
-.header.--dropdown select, .header.--dropdown select option {
-    font-family: Roboto, sans-serif;
-    font-size: 1.25rem;
-}
-
 .header {}
     .header input[type="text"] {
         font-weight: 100;
         font-size: 1.25rem;
     }
-    
     .header textarea {
         font-family: "Roboto Mono", monospace;
         font-weight: 300;
         font-size: 1rem;
+    }
+    .header.--dropdown select, .header.--dropdown option {
+        font-family: Roboto, sans-serif;
+        font-size: 1.25rem;
     }

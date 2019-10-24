@@ -87,6 +87,10 @@ let updatePopup = (event) => {
     }
 };
 
+/**
+ * Update the CSS to be injected into the website
+ * @returns {string}: Previous CSS string that was applied by the CSS injector
+ */
 let applyCSS = () => {
     console.log("OLD_CSS: " + old_css);
     let text_area = document.getElementById("domain-submit__textarea").value;
@@ -96,7 +100,18 @@ let applyCSS = () => {
     return text_area;
 };
 
+(function () {
+    /**
+     * Check and set a global guard variable.
+     * If this content script is injected into the same page again,
+     * it will do nothing next time.
+     */
+    if (window.hasRun) {
+        return;
+    }
+    window.hasRun = true;
 
-document.addEventListener("click", (e) => {
-    updatePopup(e);
-});
+    document.addEventListener("click", (e) => {
+        updatePopup(e);
+    });
+})();

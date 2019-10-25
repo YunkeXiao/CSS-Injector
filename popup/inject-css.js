@@ -1,90 +1,121 @@
-/**
- * Listen for clicks on the buttons, and send the appropriate message to
- * the content script in the page.
- *
- */
-function listenForClicks() {
-    document.addEventListener("click", (e) => {
+// Global variable
+let old_css = "a";
 
-        /**
-         * Given the name of a beast, get the URL to the corresponding image.
-         */
-        function beastNameToURL(beastName) {
-            switch (beastName) {
-                case "Frog":
-                    return browser.extension.getURL("beasts/frog.jpg");
-                case "Snake":
-                    return browser.extension.getURL("beasts/snake.jpg");
-                case "Turtle":
-                    return browser.extension.getURL("beasts/turtle.jpg");
+/**
+ * Choose what to display on the popup
+ * @param page: Integer from 0 to 2 inclusive
+ */
+let changePage = (page) => {
+    let menu = document.getElementById("popup-0");
+    let inject = document.getElementById("popup-1");
+    let inject_0 = [
+        document.getElementById("domain-selector"),
+        document.getElementById("domain-title")
+    ];
+    let inject_1 = [
+        document.getElementById("domain-search"),
+        document.getElementById("domain-select")
+    ];
+    switch (page) {
+        // Menu page
+        case 0:
+            menu.classList.remove("--hidden");
+            inject.classList.add("--hidden");
+            break;
+        // Display CSS injection page for new domain
+        case 1:
+            menu.classList.add("--hidden");
+            while (inject.classList.contains("--hidden")) {
+                inject.classList.remove("--hidden");
             }
-        }
+            for (let element of inject_0) {
+                while (element.classList.contains("--hidden")) {
+                    element.classList.remove("--hidden");
+                }
+            }
+            for (let element of inject_1) {
+                if (!element.classList.contains("--hidden")) {
+                    element.classList.add("--hidden");
+                }
+            }
+            break;
+        // Display CSS injection page for existence
+        case 2:
+            menu.classList.add("--hidden");
+            while (inject.classList.contains("--hidden")) {
+                inject.classList.remove("--hidden");
+            }
+            for (let element of inject_1) {
+                while (element.classList.contains("--hidden")) {
+                    element.classList.remove("--hidden");
+                }
+            }
+            for (let element of inject_0) {
+                if (!element.classList.contains("--hidden")) {
+                    element.classList.add("--hidden");
+                }
+            }
+            break;
+        default:
+    }
+};
 
-        /**
-         * Insert the page-hiding CSS into the active tab,
-         * then get the beast URL and
-         * send a "beastify" message to the content script in the active tab.
-         */
-        function beastify(tabs) {
-            browser.tabs.insertCSS({code: hidePage}).then(() => {
-                let url = beastNameToURL(e.target.textContent);
-                browser.tabs.sendMessage(tabs[0].id, {
-                    command: "beastify",
-                    beastURL: url
-                });
-            });
-        }
+/**
+ * Check what triggers the click event, call response
+ * @param event: Event object
+ */
+let updatePopup = (event) => {
+    let object_id = event.target["id"];
+    switch (object_id) {
+        // Menu navigation section
+        case "domain-submit__input--back":
+            changePage(0);
+            break;
+        case "new-domain":
+            changePage(1);
+            break;
+        case "existing-domain":
+            changePage(2);
+            break;
 
-        /**
-         * Remove the page-hiding CSS from the active tab,
-         * send a "reset" message to the content script in the active tab.
-         */
-        function reset(tabs) {
-            browser.tabs.removeCSS({code: hidePage}).then(() => {
-                browser.tabs.sendMessage(tabs[0].id, {
-                    command: "reset",
-                });
-            });
-        }
+        // CSS injection section
+        case "domain-submit__input--test":
+            old_css = applyCSS(old_css);
+            break;
+        case "domain-submit__input--add":
+            break;
+    }
+};
 
-        /**
-         * Just log the error to the console.
-         */
-        function reportError(error) {
-            console.error(`Could not beastify: ${error}`);
-        }
+/**
+ * Update the CSS to be injected into the website
+ * @returns {string}: Previous CSS string that was applied by the CSS injector
+ */
+let applyCSS = () => {
+    console.log("OLD_CSS: " + old_css);
+    let text_area = document.getElementById("domain-submit__textarea").value;
+    browser.tabs.removeCSS({code: old_css}).then(browser.tabs.insertCSS({code: text_area}), null);
+    old_css = text_area;
+    console.log("TEXT_AREA: " + text_area);
+    return text_area;
+};
 
-        /**
-         * Get the active tab,
-         * then call "beastify()" or "reset()" as appropriate.
-         */
-        if (e.target.classList.contains("beast")) {
-            browser.tabs.query({active: true, currentWindow: true})
-                .then(beastify)
-                .catch(reportError);
-        } else if (e.target.classList.contains("reset")) {
-            browser.tabs.query({active: true, currentWindow: true})
-                .then(reset)
-                .catch(reportError);
-        }
+(function () {
+    /**
+     * Check and set a global guard variable.
+     * If this content script is injected into the same page again,
+     * it will do nothing next time.
+     */
+    if (window.hasRun) {
+        return;
+    }
+    window.hasRun = true;
+
+    document.addEventListener("click", (e) => {
+        updatePopup(e);
     });
-}
+})();
 
-/**
- * There was an error executing the script.
- * Display the popup's error message, and hide the normal UI.
- */
-function reportExecuteScriptError(error) {
-    document.querySelector("#popup-content").classList.add("hidden");
-    document.querySelector("#error-content").classList.remove("hidden");
-    console.error(`Failed to execute beastify content script: ${error.message}`);
-}
-
-/**
- * When the popup loads, inject a content script into the active tab,
- * and add a click handler.
- * If we couldn't inject the script, handle the error.
- */
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
-    .then(listenForClicks)
-    .catch(reportExecuteScriptError);
+// export let setOldCss = (new_val) => {
+//     old_css = new_val;
+// };
